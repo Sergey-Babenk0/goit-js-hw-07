@@ -16,21 +16,22 @@ const galleryItemsPreview = galleryItems
 // console.log(galleryRender);
 galleryRender.insertAdjacentHTML("beforeend", galleryItemsPreview);
 
-galleryRender.addEventListener("click", selectPicture);
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsDelay: 250,
+});
 
-function selectPicture(event) {
-  event.preventDefault();
-  if (event.target.nodeName != "IMG") {
-    return;
-  }
-  const altCaptionPicture = event.target.alt;
-  let gallery = new SimpleLightbox(".gallery a");
+// galleryRender.addEventListener("click", selectPicture);
 
-  gallery.on("show.simplelightbox", function () {
-    captionData: `${altCaptionPicture}`;
-  });
-
-  gallery.on("show.simplelightbox", function () {
-    captionDelay: 250;
-  });
-}
+// new SimpleLightbox(".gallery a", {
+//   captionData: `event.target.galleryItem.description`,
+// });
+// function selectPicture(event) {
+//   event.preventDefault();
+//   if (event.target.nodeName != "IMG") {
+//     return;
+//   }
+//   new SimpleLightbox(".gallery a", {
+//     captionData: `event.target.galleryItem.description`,
+//   });
+// }
